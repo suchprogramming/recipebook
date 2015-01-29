@@ -1,0 +1,14 @@
+<h1><%= @recipe.name() %></h1>
+<table class="table table-bordered">
+  <tr class="active">
+    <th> Ingredients </th>
+    <th> Instructions </th>
+    <th> Rating </th>
+  </tr>
+  <tr>
+    <td> <%= @recipe.ingredients() %> </td>
+    <td> <%= @recipe.instructions() %> </td>
+    <td> <%= @recipe.id() %> </td>
+  </tr>
+</table>
+<a class="btn btn-info" href="/" role="button">Recipe Book</a>
