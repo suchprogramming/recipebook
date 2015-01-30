@@ -4,22 +4,21 @@
 
 <div class="list-group">
   <% @categories.each do |category| %>
-  <a href="/<%= category.id() %>" class="list-group-item"><%= category.name %></a>
+  <a href="/categories/<%= category.id() %>" class="list-group-item"><%= category.name %></a>
   <% end %>
 </div>
 
 <p>Add category:</p>
 
 <div class="form-group">
-  <form action='/' method='post'>
-
+  <form action='/categories' method='post'>
     <label for='name'>Create Category</label>
     <input id='name' name='name' type='text' class="form-control">
     <br>
     <button type="submit" class="btn btn-success">Add</button>
   </form>
 </div>
-<form method="post" action="/">
+<form method="post" action="/categories">
   <input name="_method" type="hidden" value="delete">
   <button type="submit" class="btn btn-danger">Delete</button>
 </form>

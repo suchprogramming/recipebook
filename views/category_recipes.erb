@@ -1,22 +1,22 @@
-<h1>Recipe Book</h1>
+<h1><%= @category.name %></h1>
 
-<p>Recipe List</p>
+<h4>Recipe List</h4>
 
 <div class="list-group">
-  <% @recipes.each do |recipe| %>
-  <a href="/recipes/<%= recipe.id() %>" class="list-group-item"><%= recipe.name %></a>
+  <% @category.recipes().each() do |recipe| %>
+  <a href="/categories/<%= @category.name() %>/<%= @recipe.id() %>" class="list-group-item"><%= @recipe.name() %></a>
   <% end %>
 </div>
 
-<p>Add recipe:</p>
+<h4>Add recipe:</h4>
 
 <div class="form-group">
-<form action='/recipes' method='post'>
+<form action="/categories/<%= @category.id() %>" method='post'>
 
   <label for='name'>Recipe Name</label>
   <input id='name' name='name' type='text' class="form-control">
 
-  <label for='ingredients'>ingredients</label>
+  <label for='ingredients'>Ingredients</label>
   <input id='ingredients' name='ingredients' type='text' class="form-control">
 
   <label for='instructions'>Instructions</label>
@@ -26,8 +26,4 @@
   <button type="submit" class="btn btn-success">Add</button>
 </form>
 </div>
-
-<form method="post" action="/">
-  <input name="_method" type="hidden" value="delete">
-  <button type="submit" class="btn btn-danger">Delete</button>
-</form>
+<a class="btn btn-info" href="/categories" role="button">Recipe Book</a>
